@@ -1,7 +1,7 @@
-const int potPin = A0;
 const int led1Pin = 12;
 const int led2Pin = 11;
-const int led1BlinkTime = 500;
+const int button1Pin = 18;
+const int button2Pin = 19;
 
 void setup() {
     pinMode(led1Pin, OUTPUT);
@@ -15,11 +15,11 @@ void loop() {
     int led2Value = LOW;
     while (true) {
         unsigned long led2BlinkTime = map(analogRead(potPin), 0, 1023, 100, 1000);
-        if (millis() - lastBlinkTime1 > led1BlinkTime) {
+        if (millis() - lastBlinkTime1 >= led1BlinkTime) {
             led1Value = !led1Value;
             lastBlinkTime1 = millis();
         }
-        if (millis() - lastBlinkTime2 > led2BlinkTime) {
+        if (millis() - lastBlinkTime2 >= led2BlinkTime) {
             led2Value = !led2Value;
             lastBlinkTime2 = millis();
         }
