@@ -47,6 +47,7 @@ String getString()
   while (Serial.available() > 0) {
     Serial.read();
   }
+  return s;
 #endif
 }
 
